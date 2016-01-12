@@ -12,9 +12,12 @@
 		A663D8AF1C44C19E005E62F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A663D8AD1C44C19E005E62F4 /* Main.storyboard */; };
 		A663D8B11C44C19E005E62F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A663D8B01C44C19E005E62F4 /* Assets.xcassets */; };
 		A663D8B41C44C19E005E62F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A663D8B21C44C19E005E62F4 /* LaunchScreen.storyboard */; };
+		D6A7904C3D2A620E9EDD9D60 /* Pods_CameraTrace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3CAFD307655D6DFF7AC1E3F /* Pods_CameraTrace.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A3F41C29755303359182E96 /* Pods-CameraTrace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CameraTrace.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CameraTrace/Pods-CameraTrace.debug.xcconfig"; sourceTree = "<group>"; };
+		80588DDDEE433E59F15633C9 /* Pods-CameraTrace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CameraTrace.release.xcconfig"; path = "Pods/Target Support Files/Pods-CameraTrace/Pods-CameraTrace.release.xcconfig"; sourceTree = "<group>"; };
 		A663D8A61C44C19E005E62F4 /* CameraTrace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraTrace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A663D8A91C44C19E005E62F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A663D8AB1C44C19E005E62F4 /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		A663D8B01C44C19E005E62F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A663D8B31C44C19E005E62F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A663D8B51C44C19E005E62F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3CAFD307655D6DFF7AC1E3F /* Pods_CameraTrace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CameraTrace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6A7904C3D2A620E9EDD9D60 /* Pods_CameraTrace.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6CCAA33F39ACB0923A731D7E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7A3F41C29755303359182E96 /* Pods-CameraTrace.debug.xcconfig */,
+				80588DDDEE433E59F15633C9 /* Pods-CameraTrace.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8A227D11F0D130A4775B4471 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D3CAFD307655D6DFF7AC1E3F /* Pods_CameraTrace.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A663D89D1C44C19E005E62F4 = {
 			isa = PBXGroup;
 			children = (
 				A663D8A81C44C19E005E62F4 /* CameraTrace */,
 				A663D8A71C44C19E005E62F4 /* Products */,
+				6CCAA33F39ACB0923A731D7E /* Pods */,
+				8A227D11F0D130A4775B4471 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A663D8B81C44C19E005E62F4 /* Build configuration list for PBXNativeTarget "CameraTrace" */;
 			buildPhases = (
+				9A01241421E0E325B4B71F9D /* Check Pods Manifest.lock */,
 				A663D8A21C44C19E005E62F4 /* Sources */,
 				A663D8A31C44C19E005E62F4 /* Frameworks */,
 				A663D8A41C44C19E005E62F4 /* Resources */,
+				A6752C42DAD0E322D34CB12B /* Embed Pods Frameworks */,
+				0925F850EBEAD36BFFBB2A23 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0925F850EBEAD36BFFBB2A23 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CameraTrace/Pods-CameraTrace-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A01241421E0E325B4B71F9D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A6752C42DAD0E322D34CB12B /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CameraTrace/Pods-CameraTrace-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A663D8A21C44C19E005E62F4 /* Sources */ = {
@@ -245,6 +320,7 @@
 		};
 		A663D8B91C44C19E005E62F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A3F41C29755303359182E96 /* Pods-CameraTrace.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CameraTrace/Info.plist;
@@ -256,6 +332,7 @@
 		};
 		A663D8BA1C44C19E005E62F4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80588DDDEE433E59F15633C9 /* Pods-CameraTrace.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CameraTrace/Info.plist;
@@ -284,6 +361,7 @@
 				A663D8BA1C44C19E005E62F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
