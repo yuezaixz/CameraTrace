@@ -13,6 +13,10 @@
 		A663D8B11C44C19E005E62F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A663D8B01C44C19E005E62F4 /* Assets.xcassets */; };
 		A663D8B41C44C19E005E62F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A663D8B21C44C19E005E62F4 /* LaunchScreen.storyboard */; };
 		A663D8C61C44CD67005E62F4 /* WDDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A663D8C51C44CD67005E62F4 /* WDDBService.swift */; };
+		A663D8C91C44DE71005E62F4 /* Trace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A663D8C81C44DE71005E62F4 /* Trace.swift */; };
+		A663D8CB1C44DE7E005E62F4 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = A663D8CA1C44DE7E005E62F4 /* Point.swift */; };
+		A663D8CD1C44DFE0005E62F4 /* WDLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A663D8CC1C44DFE0005E62F4 /* WDLocationManager.swift */; };
+		A663D8CF1C44E003005E62F4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A663D8CE1C44E003005E62F4 /* CoreLocation.framework */; };
 		D6A7904C3D2A620E9EDD9D60 /* Pods_CameraTrace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3CAFD307655D6DFF7AC1E3F /* Pods_CameraTrace.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +31,10 @@
 		A663D8B31C44C19E005E62F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A663D8B51C44C19E005E62F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A663D8C51C44CD67005E62F4 /* WDDBService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WDDBService.swift; sourceTree = "<group>"; };
+		A663D8C81C44DE71005E62F4 /* Trace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trace.swift; sourceTree = "<group>"; };
+		A663D8CA1C44DE7E005E62F4 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		A663D8CC1C44DFE0005E62F4 /* WDLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WDLocationManager.swift; sourceTree = "<group>"; };
+		A663D8CE1C44E003005E62F4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D3CAFD307655D6DFF7AC1E3F /* Pods_CameraTrace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CameraTrace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -35,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A663D8CF1C44E003005E62F4 /* CoreLocation.framework in Frameworks */,
 				D6A7904C3D2A620E9EDD9D60 /* Pods_CameraTrace.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,6 +63,7 @@
 		8A227D11F0D130A4775B4471 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A663D8CE1C44E003005E62F4 /* CoreLocation.framework */,
 				D3CAFD307655D6DFF7AC1E3F /* Pods_CameraTrace.framework */,
 			);
 			name = Frameworks;
@@ -80,6 +90,7 @@
 		A663D8A81C44C19E005E62F4 /* CameraTrace */ = {
 			isa = PBXGroup;
 			children = (
+				A663D8C71C44DE5B005E62F4 /* Model */,
 				A663D8C41C44CD50005E62F4 /* Service */,
 				A663D8A91C44C19E005E62F4 /* AppDelegate.swift */,
 				A663D8AB1C44C19E005E62F4 /* IndexViewController.swift */,
@@ -95,8 +106,18 @@
 			isa = PBXGroup;
 			children = (
 				A663D8C51C44CD67005E62F4 /* WDDBService.swift */,
+				A663D8CC1C44DFE0005E62F4 /* WDLocationManager.swift */,
 			);
 			name = Service;
+			sourceTree = "<group>";
+		};
+		A663D8C71C44DE5B005E62F4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A663D8C81C44DE71005E62F4 /* Trace.swift */,
+				A663D8CA1C44DE7E005E62F4 /* Point.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +243,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A663D8AC1C44C19E005E62F4 /* IndexViewController.swift in Sources */,
+				A663D8CD1C44DFE0005E62F4 /* WDLocationManager.swift in Sources */,
+				A663D8CB1C44DE7E005E62F4 /* Point.swift in Sources */,
+				A663D8C91C44DE71005E62F4 /* Trace.swift in Sources */,
 				A663D8C61C44CD67005E62F4 /* WDDBService.swift in Sources */,
 				A663D8AA1C44C19E005E62F4 /* AppDelegate.swift in Sources */,
 			);
