@@ -12,6 +12,7 @@
 		A663D8AF1C44C19E005E62F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A663D8AD1C44C19E005E62F4 /* Main.storyboard */; };
 		A663D8B11C44C19E005E62F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A663D8B01C44C19E005E62F4 /* Assets.xcassets */; };
 		A663D8B41C44C19E005E62F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A663D8B21C44C19E005E62F4 /* LaunchScreen.storyboard */; };
+		A663D8C61C44CD67005E62F4 /* WDDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A663D8C51C44CD67005E62F4 /* WDDBService.swift */; };
 		D6A7904C3D2A620E9EDD9D60 /* Pods_CameraTrace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3CAFD307655D6DFF7AC1E3F /* Pods_CameraTrace.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		A663D8B01C44C19E005E62F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A663D8B31C44C19E005E62F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A663D8B51C44C19E005E62F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A663D8C51C44CD67005E62F4 /* WDDBService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WDDBService.swift; sourceTree = "<group>"; };
 		D3CAFD307655D6DFF7AC1E3F /* Pods_CameraTrace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CameraTrace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -78,6 +80,7 @@
 		A663D8A81C44C19E005E62F4 /* CameraTrace */ = {
 			isa = PBXGroup;
 			children = (
+				A663D8C41C44CD50005E62F4 /* Service */,
 				A663D8A91C44C19E005E62F4 /* AppDelegate.swift */,
 				A663D8AB1C44C19E005E62F4 /* IndexViewController.swift */,
 				A663D8AD1C44C19E005E62F4 /* Main.storyboard */,
@@ -86,6 +89,14 @@
 				A663D8B51C44C19E005E62F4 /* Info.plist */,
 			);
 			path = CameraTrace;
+			sourceTree = "<group>";
+		};
+		A663D8C41C44CD50005E62F4 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A663D8C51C44CD67005E62F4 /* WDDBService.swift */,
+			);
+			name = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A663D8AC1C44C19E005E62F4 /* IndexViewController.swift in Sources */,
+				A663D8C61C44CD67005E62F4 /* WDDBService.swift in Sources */,
 				A663D8AA1C44C19E005E62F4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,7 +337,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CameraTrace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.davidandty.CameraTrace;
+				PRODUCT_BUNDLE_IDENTIFIER = com.runmaf.CameraTrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -337,7 +349,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CameraTrace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.davidandty.CameraTrace;
+				PRODUCT_BUNDLE_IDENTIFIER = com.runmaf.CameraTrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
