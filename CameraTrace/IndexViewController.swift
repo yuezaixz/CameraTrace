@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  IndexViewController.swift
 //  CameraTrace
 //
 //  Created by 吴迪玮 on 16/1/12.
@@ -8,16 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class IndexViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 
