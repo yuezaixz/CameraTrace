@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreLocation
+import UIKit
 
 class WDLocationManager:NSObject,CLLocationManagerDelegate {
     static let locationManager:WDLocationManager = WDLocationManager()
@@ -45,7 +46,7 @@ class WDLocationManager:NSObject,CLLocationManagerDelegate {
         if status == CLAuthorizationStatus.NotDetermined {
             locationManager.requestAlwaysAuthorization()
         } else if status == CLAuthorizationStatus.Denied {
-            //TODO 提示权限被拒绝
+            UIAlertView.init(title: "定位权限被拒绝", message: "定位权限被拒绝，请在设置中开启", delegate: nil, cancelButtonTitle: nil).show()
             return
         }
         locationManager.startUpdatingLocation()
@@ -66,7 +67,7 @@ class WDLocationManager:NSObject,CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus){
         if status == CLAuthorizationStatus.Denied {
-            //TODO 提示权限被拒绝
+            UIAlertView.init(title: "定位权限被拒绝", message: "定位权限被拒绝，请在设置中开启", delegate: nil, cancelButtonTitle: nil).show()
         }
     }
     
