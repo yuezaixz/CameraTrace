@@ -20,7 +20,7 @@ class WDDBService: NSObject {
         var traceSql = "create table if not exists trace (trace_id integer NOT NULL PRIMARY KEY,"
         traceSql.appendContentsOf("create_time varchar(30),last_camera_time varchar(30) ,point_data blob,photo_count integer,user_id integer)")
         
-        var pointSql = "create table if not exists point (point_id integer NOT NULL PRIMARY KEY autoincrement,"
+        var pointSql = "create table if not exists point (point_id integer NOT NULL PRIMARY KEY,"
         pointSql.appendContentsOf("create_time varchar(30),trace_id integer,latitude double,longitude double, china_latitude double,china_longitude double)")
         
         var photoSql = "create table if not exists photo (photo_id integer NOT NULL PRIMARY KEY autoincrement,"

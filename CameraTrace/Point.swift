@@ -11,7 +11,14 @@ import UIKit
 class Point: NSObject {
     static var lastPoint:Point?{
         willSet{
-            if let dbPoint = lastPoint {
+            if let dbPoint = newValue {
+                var pointId = 1
+                if let newPointId = WDDBService.executeQuerySql("select max(point_id) as point_id from point", args: [NSObject : AnyObject]())?["point_id"] {
+                    if !(newPointId is NSNull){
+                        pointId += newPointId as! Int
+                    }
+                }
+                dbPoint.pointId = pointId
                 WDDBService.executeUpdateSql("insert into  point(create_time,trace_id,latitude,longitude, china_latitude,china_longitude) values(:create_time,:trace_id,:latitude,:longitude, :china_latitude,:china_longitude)", args: ["create_time":dbPoint.createTime,"trace_id":dbPoint.traceId,"latitude":dbPoint.latitude,"longitude":dbPoint.longitude, "china_latitude":(dbPoint.china_latitude ?? 0),"china_longitude":(dbPoint.china_longitude ?? 0)])
             }
             

@@ -34,6 +34,7 @@
 		A663D8F41C463561005E62F4 /* ALPermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A663D8E41C463561005E62F4 /* ALPermissionsView.swift */; };
 		A663D8F61C4635E9005E62F4 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A663D8F51C4635E9005E62F4 /* ViewController.xib */; };
 		A663D8F81C46360A005E62F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A663D8F71C46360A005E62F4 /* ViewController.swift */; };
+		A663D8FA1C4639B5005E62F4 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A663D8F91C4639B5005E62F4 /* Photo.swift */; };
 		D6A7904C3D2A620E9EDD9D60 /* Pods_CameraTrace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3CAFD307655D6DFF7AC1E3F /* Pods_CameraTrace.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		A663D8E41C463561005E62F4 /* ALPermissionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALPermissionsView.swift; sourceTree = "<group>"; };
 		A663D8F51C4635E9005E62F4 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		A663D8F71C46360A005E62F4 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A663D8F91C4639B5005E62F4 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		D3CAFD307655D6DFF7AC1E3F /* Pods_CameraTrace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CameraTrace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -152,6 +154,7 @@
 			children = (
 				A663D8C81C44DE71005E62F4 /* Trace.swift */,
 				A663D8CA1C44DE7E005E62F4 /* Point.swift */,
+				A663D8F91C4639B5005E62F4 /* Photo.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A663D8FA1C4639B5005E62F4 /* Photo.swift in Sources */,
 				A663D8F01C463561005E62F4 /* ALImagePickerViewDelegate.swift in Sources */,
 				A663D8EC1C463561005E62F4 /* ALCameraViewController.swift in Sources */,
 				A663D8AC1C44C19E005E62F4 /* IndexViewController.swift in Sources */,
