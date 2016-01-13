@@ -11,8 +11,13 @@ import UIKit
 class Trace: NSObject {
     static var currentTrace:Trace!{
         willSet{
-            //TODO SAVE
-//            newValue
+            var traceId = 1
+            if let newTraceId = WDDBService.executeQuerySql("select max(trace_id) as trace_id from trace", args: [NSObject : AnyObject]())?["trace_id"] {
+                traceId += newTraceId as! Int
+            }
+            newValue.traceId = traceId
+            
+            WDDBService.executeUpdateSql("insert into  trace(trace_id,create_time,last_camera_time,photo_count,user_id) values(:trace_id,:create_time,:last_camera_time,:photo_count,:user_id)", args: ["trace_id":newValue.traceId,"create_time":newValue.createTime,"last_camera_time":newValue.lastTime,"photo_count":newValue.photoCount,"user_id":newValue.userId])
         }
     }
     var traceId = 0

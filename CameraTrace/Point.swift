@@ -11,10 +11,10 @@ import UIKit
 class Point: NSObject {
     static var lastPoint:Point?{
         willSet{
-            //TODO SAVE
-//            if var point = newValue {
-//                
-//            }
+            if let dbPoint = lastPoint {
+                WDDBService.executeUpdateSql("insert into  point(create_time,trace_id,latitude,longitude, china_latitude,china_longitude) values(:create_time,:trace_id,:latitude,:longitude, :china_latitude,:china_longitude)", args: ["create_time":dbPoint.createTime,"trace_id":dbPoint.traceId,"latitude":dbPoint.latitude,"longitude":dbPoint.longitude, "china_latitude":(dbPoint.china_latitude ?? 0),"china_longitude":(dbPoint.china_longitude ?? 0)])
+            }
+            
         }
     }
     var pointId:Int = 0
