@@ -57,4 +57,43 @@ class WDDBService: NSObject {
         return db
     }
     
+    class func executeUpdateSql(sql:String!,args:[NSObject : AnyObject]!) -> Bool{
+        return self.getWDDBService().executeUpdateSql(sql, args: args)
+    }
+    
+    func executeUpdateSql(sql:String!,args:[NSObject : AnyObject]!) -> Bool{
+        let db = getDB()
+        if db.open() {
+            if !db.executeUpdate(sql, withParameterDictionary: args){
+                print("Update sql execute error: \(db.lastErrorMessage())")
+            }
+            
+            db.close()
+            return true
+        } else {
+            print("DB open error: \(db.lastErrorMessage())")
+            return false
+        }
+    }
+    
+    class func executeQuerySql(sql:String!,args:[NSObject : AnyObject]!) -> [NSObject : AnyObject]?{
+        return self.getWDDBService().executeQuerySql(sql, args: args)
+    }
+    
+    func executeQuerySql(sql:String!,args:[NSObject : AnyObject]!) -> [NSObject : AnyObject]?{
+        var result:[NSObject : AnyObject]?
+        let db = getDB()
+        if db.open() {
+            if let queryResult = db.executeQuery(sql, withParameterDictionary: args){
+                result = queryResult.resultDictionary()
+            }
+            
+            db.close()
+            return result
+        } else {
+            print("DB open error: \(db.lastErrorMessage())")
+            return result
+        }
+    }
+    
 }

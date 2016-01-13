@@ -17,6 +17,7 @@ class Point: NSObject {
 //            }
         }
     }
+    var pointId:Int = 0
     var latitude:Double
     var longitude:Double
     var traceId:Int
@@ -27,6 +28,10 @@ class Point: NSObject {
         self.traceId = traceId
         self.latitude = latitude
         self.longitude = longitude
+    }
+    
+    func save(){
+        
     }
 
 }
