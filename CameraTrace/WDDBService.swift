@@ -24,7 +24,7 @@ class WDDBService: NSObject {
         pointSql.appendContentsOf("create_time varchar(30),trace_id integer,latitude double,longitude double, china_latitude double,china_longitude double)")
         
         var photoSql = "create table if not exists photo (photo_id integer NOT NULL PRIMARY KEY autoincrement,"
-        photoSql.appendContentsOf("create_time varchar(30),trace_id integer,point_id integer,user_id integer)")
+        photoSql.appendContentsOf("image blob,create_time varchar(30),trace_id integer,point_id integer,user_id integer)")
         
         if db.open() {
             if !db.executeStatements(traceSql) {

@@ -15,8 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        Trace.currentTrace = Trace()
         WDDBService.getWDDBService()
         WDLocationManager.getWDLocationManager().startLocationUpdate()
+        
+        let viewController = ViewController(nibName: "ViewController", bundle: NSBundle.mainBundle())
+        
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window!.rootViewController = viewController
+        window!.makeKeyAndVisible()
         return true
     }
 

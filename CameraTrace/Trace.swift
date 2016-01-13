@@ -13,7 +13,9 @@ class Trace: NSObject {
         willSet{
             var traceId = 1
             if let newTraceId = WDDBService.executeQuerySql("select max(trace_id) as trace_id from trace", args: [NSObject : AnyObject]())?["trace_id"] {
-                traceId += newTraceId as! Int
+                if !(newTraceId is NSNull){
+                    traceId += newTraceId as! Int
+                }
             }
             newValue.traceId = traceId
             

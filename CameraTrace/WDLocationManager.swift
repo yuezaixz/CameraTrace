@@ -61,8 +61,9 @@ class WDLocationManager:NSObject,CLLocationManagerDelegate {
             return
         }
         lastLocation = location
-        Point.lastPoint = Point(traceId: Trace.currentTrace.traceId ,latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        
+        if let trace = Trace.currentTrace {
+           Point.lastPoint = Point(traceId: trace.traceId ,latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        }
     }
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus){
