@@ -62,7 +62,13 @@ class WDLocationManager:NSObject,CLLocationManagerDelegate {
         }
         lastLocation = location
         if let trace = Trace.currentTrace {
-           Point.lastPoint = Point(traceId: trace.traceId ,latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            let point = Point(traceId: trace.traceId ,latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            if !ObjcUtils.outOfChina(point.latitude, lon: point.longitude) {
+                let coordinate = ObjcUtils.transform(location.coordinate)
+                point.china_latitude = coordinate.latitude
+                point.china_longitude = coordinate.longitude
+            }
+            Point.lastPoint = point
         }
     }
     
