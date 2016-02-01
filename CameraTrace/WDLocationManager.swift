@@ -46,7 +46,7 @@ class WDLocationManager:NSObject,CLLocationManagerDelegate {
         if status == CLAuthorizationStatus.NotDetermined {
             locationManager.requestAlwaysAuthorization()
         } else if status == CLAuthorizationStatus.Denied {
-            UIAlertView.init(title: "定位权限被拒绝", message: "定位权限被拒绝，请在设置中开启", delegate: nil, cancelButtonTitle: nil).show()
+            UIAlertView.init(title: "定位权限被拒绝", message: "定位权限被拒绝，请在设置中开启", delegate: nil, cancelButtonTitle: "取消").show()
             return
         }
         locationManager.startUpdatingLocation()
@@ -74,7 +74,7 @@ class WDLocationManager:NSObject,CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus){
         if status == CLAuthorizationStatus.Denied {
-            UIAlertView.init(title: "定位权限被拒绝", message: "定位权限被拒绝，请在设置中开启", delegate: nil, cancelButtonTitle: nil).show()
+            UIAlertView.init(title: "定位权限被拒绝", message: "定位权限被拒绝，请在设置中开启", delegate: nil, cancelButtonTitle: "取消").show()
         }
     }
     
