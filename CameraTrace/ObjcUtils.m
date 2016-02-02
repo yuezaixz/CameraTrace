@@ -11,6 +11,8 @@
 #define ee 0.00669342162296594323
 
 #import "ObjcUtils.h"
+#import <UIKit/UIKit.h>
+#include <sys/sysctl.h>
 
 @implementation ObjcUtils
 
@@ -57,6 +59,82 @@
     if (lat < 0.8293 || lat > 55.8271)
         return true;
     return false;
+}
+
+// 获取设备型号
++ (NSString *)getDeviceInfo {
+    size_t size;
+    sysctlbyname("hw.machine", NULL, &size, NULL, 0);
+    char *machine = malloc(size);
+    sysctlbyname("hw.machine", machine, &size, NULL, 0);
+    NSString *platform = [NSString stringWithCString:machine encoding:NSUTF8StringEncoding];
+    free(machine);
+    
+    if ([platform isEqualToString:@"iPhone1,1"]) return @"iPhone 1G";
+    else if ([platform isEqualToString:@"iPhone1,2"]) return @"iPhone 3G";
+    else if ([platform isEqualToString:@"iPhone2,1"]) return @"iPhone 3GS";
+    else if ([platform isEqualToString:@"iPhone3,1"]) return @"iPhone 4";
+    else if ([platform isEqualToString:@"iPhone3,2"]) return @"iPhone 4";
+    else if ([platform isEqualToString:@"iPhone3,3"]) return @"iPhone 4";
+    else if ([platform isEqualToString:@"iPhone4,1"]) return @"iPhone 4S";
+    else if ([platform isEqualToString:@"iPhone5,1"]) return @"iPhone 5";
+    else if ([platform isEqualToString:@"iPhone5,2"]) return @"iPhone 5";
+    else if ([platform isEqualToString:@"iPhone5,3"]) return @"iPhone 5C";
+    else if ([platform isEqualToString:@"iPhone5,4"]) return @"iPhone 5C";
+    else if ([platform isEqualToString:@"iPhone6,1"]) return @"iPhone 5S";
+    else if ([platform isEqualToString:@"iPhone6,2"]) return @"iPhone 5S";
+    else if ([platform isEqualToString:@"iPhone7,1"]) return @"iPhone 6";
+    else if ([platform isEqualToString:@"iPhone7,2"]) return @"iPhone 6+";
+    //iPod
+    else if ([platform isEqualToString:@"iPod1,1"]) return @"iPod Touch 1G";
+    else if ([platform isEqualToString:@"iPod2,1"]) return @"iPod Touch 2G";
+    else if ([platform isEqualToString:@"iPod3,1"]) return @"iPod Touch 3G";
+    else if ([platform isEqualToString:@"iPod4,1"]) return @"iPod Touch 4G";
+    else if ([platform isEqualToString:@"iPod5,1"]) return @"iPod Touch 5G";
+    //iPad
+    else if ([platform isEqualToString:@"iPad1,1"]) return @"iPad";
+    else if ([platform isEqualToString:@"iPad2,1"]) return @"iPad 2";
+    else if ([platform isEqualToString:@"iPad2,2"]) return @"iPad 2";
+    else if ([platform isEqualToString:@"iPad2,3"]) return @"iPad 2";
+    else if ([platform isEqualToString:@"iPad2,4"]) return @"iPad 2";
+    else if ([platform isEqualToString:@"iPad2,5"]) return @"iPad Mini 1";
+    else if ([platform isEqualToString:@"iPad2,6"]) return @"iPad Mini 1";
+    else if ([platform isEqualToString:@"iPad2,7"]) return @"iPad Mini 1";
+    else if ([platform isEqualToString:@"iPad3,1"]) return @"iPad 3";
+    else if ([platform isEqualToString:@"iPad3,2"]) return @"iPad 3";
+    else if ([platform isEqualToString:@"iPad3,3"]) return @"iPad 3";
+    else if ([platform isEqualToString:@"iPad3,4"]) return @"iPad 4";
+    else if ([platform isEqualToString:@"iPad3,5"]) return @"iPad 4";
+    else if ([platform isEqualToString:@"iPad3,6"]) return @"iPad 4";
+    else if ([platform isEqualToString:@"iPad4,1"]) return @"iPad air";
+    else if ([platform isEqualToString:@"iPad4,2"]) return @"iPad air";
+    else if ([platform isEqualToString:@"iPad4,3"]) return @"iPad air";
+    else if ([platform isEqualToString:@"iPad4,4"]) return @"iPad mini 2";
+    else if ([platform isEqualToString:@"iPad4,5"]) return @"iPad mini 2";
+    else if ([platform isEqualToString:@"iPad4,6"]) return @"iPad mini 2";
+    else if ([platform isEqualToString:@"iPad4,7"]) return @"iPad mini 3";
+    else if ([platform isEqualToString:@"iPad4,8"]) return @"iPad mini 3";
+    else if ([platform isEqualToString:@"iPad4,9"]) return @"iPad mini 3";
+    else if ([platform isEqualToString:@"iPad5,3"]) return @"iPad air 2";
+    else if ([platform isEqualToString:@"iPad5,4"]) return @"iPad air 2";
+    else if ([platform isEqualToString:@"i386"] || [platform isEqualToString:@"x86_64"]) return @"iPhone Simulator";
+    else return platform;
+}
+
+// 系统版本
++ (NSString *)getSystemVersion {
+    UIDevice *device = [UIDevice currentDevice];
+    return device.systemVersion;
+}
+
+// 软件版本
++ (NSString *)getSoftVersion {
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    // app版本
+    NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    NSString *app_bundle_version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    
+    return [NSString stringWithFormat:@"%@(%@)",app_Version,app_bundle_version];
 }
 
 @end

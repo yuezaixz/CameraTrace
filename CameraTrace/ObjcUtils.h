@@ -16,4 +16,8 @@
 + (double)transfromLongitudeWithX:(double)x y:(double)y;
 + (BOOL)outOfChina:(double)lat lon:(double)lon;
 
++ (NSString *)getDeviceInfo;
++ (NSString *)getSystemVersion;
++ (NSString *)getSoftVersion;
+
 @end

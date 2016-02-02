@@ -98,4 +98,30 @@ class WDDBService: NSObject {
         }
     }
     
+    class func executeQuerySql(sql:String!,args:[NSObject : AnyObject]!,modelClosure:([NSObject : AnyObject])->AnyObject?) -> [AnyObject] {
+        return self.getWDDBService().executeQuerySql(sql, args: args, modelClosure: modelClosure)
+    }
+    
+    func executeQuerySql(sql:String!,args:[NSObject : AnyObject]!,modelClosure:([NSObject : AnyObject])->AnyObject?) -> [AnyObject] {
+        var result:[AnyObject] = []
+        let db = getDB()
+        if db.open() {
+            if let queryResult = db.executeQuery(sql, withParameterDictionary: args){
+                if queryResult.next(){
+                    if let tempResult = queryResult.resultDictionary() {
+                        if let model = modelClosure(tempResult) {
+                            result.append(model)
+                        }
+                    }
+                }
+            }
+            
+            db.close()
+            return result
+        } else {
+            print("DB open error: \(db.lastErrorMessage())")
+            return result
+        }
+    }
+    
 }

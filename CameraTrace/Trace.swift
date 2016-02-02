@@ -27,6 +27,42 @@ class Trace: NSObject {
     var createTime = NSDate()
     var lastTime = NSDate()
     var photoCount = 0
-    var pointData:NSData?
+    var pointArray:[[String:AnyObject]]?
+    
+    
+    class func getAllTrace() -> [AnyObject]{
+        let traces = WDDBService.executeQuerySql("select trace_id,create_time from trace ", args: nil) { (resultDict) -> AnyObject? in
+            guard let traceId = resultDict["trace_id"] as? Int else {
+                return nil
+            }
+            
+            let trace = Trace.init()
+            trace.traceId = traceId
+            
+            if let createTime = resultDict["create_time"] as? Double {
+                trace.createTime = NSDate.init(timeIntervalSince1970: createTime)
+            }
+            
+            var points:[[String:AnyObject]] = []
+            
+            for pointObject in Point.getByTraceId(traceId) {
+                if let point = pointObject as? Point {
+                    points.append(point.jsonDict())
+                }
+            }
+            trace.pointArray = points
+            
+            return trace
+        }
+        return traces
+    }
+    
+    func jsonDict() -> [String:AnyObject]? {
+        var jsonDict:[String:AnyObject] = ["dev":ObjcUtils.getDeviceInfo(),"sys_v":"iOS\(ObjcUtils.getSystemVersion())","app_v":ObjcUtils.getSoftVersion()]
+        jsonDict["time"] = self.createTime.timeIntervalSince1970
+        jsonDict["points"] = self.pointArray
+        
+        return jsonDict
+    }
     
 }

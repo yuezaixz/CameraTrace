@@ -31,6 +31,9 @@ class Point: NSObject {
     var china_latitude:Double?
     var china_longitude:Double?
     var createTime = NSDate()
+    
+    var photos:[[String:AnyObject]]?
+    
     init(traceId:Int,latitude:Double,longitude:Double) {
         self.traceId = traceId
         self.latitude = latitude
@@ -39,6 +42,53 @@ class Point: NSObject {
     
     func save(){
         
+    }
+    
+    class func getByTraceId(traceId:Int) -> [AnyObject]{
+        let points = WDDBService.executeQuerySql("select point_id,latitude,longitude,china_latitude,china_longitude,create_time from point where trace_id = :trace_id ", args: ["trace_id":traceId]) { (resultDict) -> AnyObject? in
+            guard let latitude = resultDict["latitude"] as? Double, let longitude = resultDict["longitude"] as? Double else {
+                return nil
+            }
+            let point = Point.init(traceId: traceId, latitude: latitude, longitude: longitude)
+            
+            if let chinaLatitude = resultDict["china_latitude"] as? Double,let chinaLongitude = resultDict["china_longitude"] as? Double {
+                point.china_latitude = chinaLatitude;
+                point.china_longitude = chinaLongitude;
+            } else {
+                point.china_latitude = latitude;
+                point.china_longitude = longitude;
+            }
+            if let createTime = resultDict["create_time"] as? Double {
+                point.createTime = NSDate.init(timeIntervalSince1970: createTime)
+            }
+            
+            
+            if let pointId = resultDict["point_id"] as? Int {
+                var photos:[[String:AnyObject]] = []
+                for photoObject in Photo.getByPointId(pointId) {
+                    if let photo = photoObject as? Photo {
+                        photos.append(photo.jsonDict())
+                    }
+                }
+                point.photos = photos
+            }
+            
+            return point
+        }
+        return points
+    }
+    
+    
+    func jsonDict() -> [String:AnyObject] {
+        var jsonDict:[String:AnyObject] = [:]
+        jsonDict["lat"] = self.latitude
+        jsonDict["lon"] = self.longitude
+        jsonDict["c_lat"] = self.china_latitude
+        jsonDict["c_lon"] = self.china_longitude
+        jsonDict["time"] = self.createTime.timeIntervalSince1970
+        jsonDict["photos"] = self.photos
+        
+        return jsonDict
     }
 
 }
