@@ -36,6 +36,7 @@
 		A663D8F61C4635E9005E62F4 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A663D8F51C4635E9005E62F4 /* ViewController.xib */; };
 		A663D8F81C46360A005E62F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A663D8F71C46360A005E62F4 /* ViewController.swift */; };
 		A663D8FA1C4639B5005E62F4 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A663D8F91C4639B5005E62F4 /* Photo.swift */; };
+		A6B76B511C5F5F840024439F /* TraceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B76B501C5F5F840024439F /* TraceAPI.swift */; };
 		D6A7904C3D2A620E9EDD9D60 /* Pods_CameraTrace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3CAFD307655D6DFF7AC1E3F /* Pods_CameraTrace.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		A663D8F51C4635E9005E62F4 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		A663D8F71C46360A005E62F4 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A663D8F91C4639B5005E62F4 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		A6B76B501C5F5F840024439F /* TraceAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraceAPI.swift; sourceTree = "<group>"; };
 		D3CAFD307655D6DFF7AC1E3F /* Pods_CameraTrace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CameraTrace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -160,6 +162,7 @@
 			children = (
 				A663D8C51C44CD67005E62F4 /* WDDBService.swift */,
 				A663D8CC1C44DFE0005E62F4 /* WDLocationManager.swift */,
+				A6B76B501C5F5F840024439F /* TraceAPI.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				A663D8C91C44DE71005E62F4 /* Trace.swift in Sources */,
 				A663D8EF1C463561005E62F4 /* ALImagePickerViewController.swift in Sources */,
 				A663D8F81C46360A005E62F4 /* ViewController.swift in Sources */,
+				A6B76B511C5F5F840024439F /* TraceAPI.swift in Sources */,
 				A663D8F31C463561005E62F4 /* ALImageCell.swift in Sources */,
 				A663D8EA1C463561005E62F4 /* ALImageFetchingInteractor.swift in Sources */,
 				A663D8ED1C463561005E62F4 /* ALConfirmViewController.swift in Sources */,

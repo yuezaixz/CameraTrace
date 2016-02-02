@@ -84,8 +84,12 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-CameraTrace/Alamofire.framework"
+  install_framework "Pods-CameraTrace/AlamofireImage.framework"
   install_framework "Pods-CameraTrace/FMDB.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-CameraTrace/Alamofire.framework"
+  install_framework "Pods-CameraTrace/AlamofireImage.framework"
   install_framework "Pods-CameraTrace/FMDB.framework"
 fi
