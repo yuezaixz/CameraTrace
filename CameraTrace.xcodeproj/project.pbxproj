@@ -36,6 +36,7 @@
 		A663D8F61C4635E9005E62F4 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A663D8F51C4635E9005E62F4 /* ViewController.xib */; };
 		A663D8F81C46360A005E62F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A663D8F71C46360A005E62F4 /* ViewController.swift */; };
 		A663D8FA1C4639B5005E62F4 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A663D8F91C4639B5005E62F4 /* Photo.swift */; };
+		A66D64C31C6087D100C4EA04 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = A66D64C21C6087D100C4EA04 /* Base64.m */; };
 		A6B76B511C5F5F840024439F /* TraceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B76B501C5F5F840024439F /* TraceAPI.swift */; };
 		D6A7904C3D2A620E9EDD9D60 /* Pods_CameraTrace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3CAFD307655D6DFF7AC1E3F /* Pods_CameraTrace.framework */; };
 /* End PBXBuildFile section */
@@ -76,6 +77,8 @@
 		A663D8F51C4635E9005E62F4 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		A663D8F71C46360A005E62F4 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A663D8F91C4639B5005E62F4 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		A66D64C11C6087D100C4EA04 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
+		A66D64C21C6087D100C4EA04 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
 		A6B76B501C5F5F840024439F /* TraceAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraceAPI.swift; sourceTree = "<group>"; };
 		D3CAFD307655D6DFF7AC1E3F /* Pods_CameraTrace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CameraTrace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -114,6 +117,8 @@
 		A63F91931C4884CF00F2CF1E /* Objc */ = {
 			isa = PBXGroup;
 			children = (
+				A66D64C11C6087D100C4EA04 /* Base64.h */,
+				A66D64C21C6087D100C4EA04 /* Base64.m */,
 				A63F91951C4884E900F2CF1E /* ObjcUtils.h */,
 				A63F91961C4884E900F2CF1E /* ObjcUtils.m */,
 				A63F91941C4884E800F2CF1E /* CameraTrace-Bridging-Header.h */,
@@ -374,6 +379,7 @@
 				A663D8F31C463561005E62F4 /* ALImageCell.swift in Sources */,
 				A663D8EA1C463561005E62F4 /* ALImageFetchingInteractor.swift in Sources */,
 				A663D8ED1C463561005E62F4 /* ALConfirmViewController.swift in Sources */,
+				A66D64C31C6087D100C4EA04 /* Base64.m in Sources */,
 				A663D8C61C44CD67005E62F4 /* WDDBService.swift in Sources */,
 				A663D8AA1C44C19E005E62F4 /* AppDelegate.swift in Sources */,
 				A663D8E91C463561005E62F4 /* ALImageExtensions.swift in Sources */,

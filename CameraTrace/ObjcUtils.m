@@ -13,8 +13,24 @@
 #import "ObjcUtils.h"
 #import <UIKit/UIKit.h>
 #include <sys/sysctl.h>
+#import "Base64.h"
+#import <CommonCrypto/CommonHMAC.h>
+
+static NSString* QN_AccessKey;
+static NSString* QN_SecretKey;
+static NSString* QN_Bucket;
+static NSString* QN_VideoBucket;
 
 @implementation ObjcUtils
+
++(void)initialize{
+    if (!QN_AccessKey || !QN_SecretKey || !QN_Bucket) {
+        QN_AccessKey=QINIU_AK;
+        QN_SecretKey=QINIU_SK;
+        QN_Bucket=QINIU_BUCKET;
+        QN_VideoBucket=nil;
+    }
+}
 
 +(CLLocationCoordinate2D)transform:(CLLocationCoordinate2D)location{
     if([self outOfChina:location.latitude lon:location.longitude]){
@@ -135,6 +151,48 @@
     NSString *app_bundle_version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
     
     return [NSString stringWithFormat:@"%@(%@)",app_Version,app_bundle_version];
+}
+
+#pragma mark - qiniu
+
++(NSString*)generateNormalUploadTokenWithKey:(NSString*)fileKey{
+    [self initialize];
+    
+    NSString *putPolicy=[NSString stringWithFormat:@"{\"scope\":\"%@:%@\",\"deadline\":%d,\"returnBody\":\"{\\\"size\\\":$(fsize),\\\"w\\\":$(imageInfo.width),\\\"h\\\":$(imageInfo.height),\\\"key\\\":$(key)}\"}",QINIU_BUCKET,fileKey,(int)([[NSDate date] timeIntervalSince1970]+3600)];
+    
+    return [self generateUploadTokenWithPutPolicy:putPolicy];
+}
+
++(NSString*)generateUniqueKeyWithUserId:(NSInteger)userId type:(NSString *)type{
+    ;
+    return [NSString stringWithFormat:@"%d-%@-%f-%d", (int)userId,[type stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],[[NSDate date] timeIntervalSince1970],abs(arc4random())];
+}
+
+/**
+  *根据putpolicy生成token
+  */
++(NSString*)generateUploadTokenWithPutPolicy:(NSString *)putPolicy{
+    
+    NSString *putPolicyBase64=[[putPolicy dataUsingEncoding:NSUTF8StringEncoding] base64EncodedString];
+    
+    NSData *putPolicyBase64Data=[putPolicyBase64 dataUsingEncoding:NSUTF8StringEncoding];
+    
+    
+    NSData *secretData = [QN_SecretKey dataUsingEncoding:NSUTF8StringEncoding];
+    unsigned char result[CC_SHA1_DIGEST_LENGTH];
+    CCHmac(kCCHmacAlgSHA1, [secretData bytes], [secretData length], [putPolicyBase64Data bytes], [putPolicyBase64Data length], result);
+    
+    NSString *signBase64=[[NSData dataWithBytes:result length:sizeof(result)] base64EncodedString];
+    
+    return [NSString stringWithFormat:@"%@:%@:%@",QN_AccessKey,[self getUrlSafeStringFromBase64String:signBase64],[self getUrlSafeStringFromBase64String:putPolicyBase64]];
+}
+
++(NSString*)getUrlSafeStringFromBase64String:(NSString*)base64{
+    NSMutableString *str=[NSMutableString stringWithString:base64];
+    [str replaceOccurrencesOfString:@"+" withString:@"-" options:NSLiteralSearch range:NSMakeRange(0, base64.length)];
+    [str replaceOccurrencesOfString:@"/" withString:@"_" options:NSLiteralSearch range:NSMakeRange(0, base64.length)];
+    
+    return str;
 }
 
 @end

@@ -77,5 +77,44 @@ final class TraceAPI {
     }
 }
 
+final class QiniuAPI {
+    static let sharedInstance = QiniuAPI()
+    
+    func post(image: NSData, completion: String? -> ()) {
+        let key = ObjcUtils.generateUniqueKeyWithUserId(107, type: "camera_trace")
+        let parameters: JSONObject = [
+            "token":ObjcUtils.generateNormalUploadTokenWithKey(key),
+            "key":key,
+            "file":image
+        ]
+        
+        let method = "POST"
+        let encoding = Alamofire.ParameterEncoding.JSON
+        let URL = NSURL(string: "http://up.qiniu.com/")!
+        let URLRequest = NSMutableURLRequest(URL: URL)
+        URLRequest.HTTPMethod = method
+        let request = encoding.encode(URLRequest, parameters: parameters).0
+        
+        Alamofire.request(request).responseJSON { _, response, result in
+            print("Finished \(method) \(URL): \(response?.statusCode)")
+            switch result {
+            case .Success(let JSON):
+                if let key = JSON["key"] as? String {
+                    completion(key)
+                }
+                completion(nil)
+                
+            case .Failure(let data, let error):
+                print("Request failed with error: \(error)")
+                if let data = data {
+                    print("Response data: \(NSString(data: data, encoding: NSUTF8StringEncoding)!)")
+                }
+                
+                completion(nil)
+            }
+        }
+    }
+}
+
 
 

@@ -34,7 +34,11 @@ class Photo:NSObject {
             guard let imageData = image as? NSData else {
                 return nil
             }
-            
+            QiniuAPI.sharedInstance.post(imageData, completion: { (result) -> () in
+                if let key = result {
+                    print(key)
+                }
+            })
             let photo = Photo.init(image: imageData)
             
             if let createTime = resultDict["create_time"] as? Double {
