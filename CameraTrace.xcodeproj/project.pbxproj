@@ -81,6 +81,7 @@
 		A6962D9B1C61E99900400EEE /* QiniuUploadAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QiniuUploadAPI.swift; sourceTree = "<group>"; };
 		A6962D9D1C61ECDF00400EEE /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
 		A6962D9E1C61ECDF00400EEE /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
+		A6962DA01C61F02000400EEE /* QiuniuInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiuniuInfo.h; sourceTree = "<group>"; };
 		A6B76B501C5F5F840024439F /* TraceAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraceAPI.swift; sourceTree = "<group>"; };
 		D3CAFD307655D6DFF7AC1E3F /* Pods_CameraTrace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CameraTrace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -124,6 +125,7 @@
 				A63F91951C4884E900F2CF1E /* ObjcUtils.h */,
 				A63F91961C4884E900F2CF1E /* ObjcUtils.m */,
 				A63F91941C4884E800F2CF1E /* CameraTrace-Bridging-Header.h */,
+				A6962DA01C61F02000400EEE /* QiuniuInfo.h */,
 			);
 			name = Objc;
 			sourceTree = "<group>";
