@@ -13,7 +13,7 @@ class Photo:NSObject {
     var image:NSData
     var createTime = NSDate()
     var traceId = Trace.currentTrace.traceId
-    var pointId = Point.lastPoint!.pointId
+    var pointId = Point.lastPoint?.pointId ?? 0
     var userId = 0
     
     init(image:NSData){

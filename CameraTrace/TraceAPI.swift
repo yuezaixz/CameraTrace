@@ -84,8 +84,7 @@ final class QiniuAPI {
         let key = ObjcUtils.generateUniqueKeyWithUserId(107, type: "camera_trace")
         let parameters: JSONObject = [
             "token":ObjcUtils.generateNormalUploadTokenWithKey(key),
-            "key":key,
-            "file":image
+            "key":key
         ]
         
         let method = "POST"
