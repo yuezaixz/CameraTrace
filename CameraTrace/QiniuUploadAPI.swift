@@ -13,11 +13,10 @@ final class QiniuAPI {
     static let sharedInstance = QiniuAPI()
     let upManager = QNUploadManager()
     
-    private let token = ""
-    
-    private let key = ""
-    
     func upload(imageData:NSData,completion: String -> Void){
+        let key = ObjcUtils.generateUniqueKeyWithUserId(107, type: "camera_trace")
+        let token = ObjcUtils.generateNormalUploadTokenWithKey(key)
+        
         upManager.putData(
             imageData,
             key: key,

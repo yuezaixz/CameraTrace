@@ -22,6 +22,11 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+	<key>NSAllowsArbitraryLoads</key>
+	<true/>
+	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>跑动请求后台定位权限</string>
 	<key>UIBackgroundModes</key>

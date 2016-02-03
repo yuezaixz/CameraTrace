@@ -18,9 +18,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        for traceObject in Trace.getAllTrace() {
-//            print((traceObject as! Trace).jsonDict())
-//        }
+        for traceObject in Trace.getAllTrace() {
+            print((traceObject as! Trace).jsonDict())
+        }
     }
     
     @IBAction func openCamera(sender: AnyObject) {

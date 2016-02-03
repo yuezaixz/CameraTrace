@@ -107,7 +107,7 @@ class WDDBService: NSObject {
         let db = getDB()
         if db.open() {
             if let queryResult = db.executeQuery(sql, withParameterDictionary: args){
-                if queryResult.next(){
+                while queryResult.next(){
                     if let tempResult = queryResult.resultDictionary() {
                         if let model = modelClosure(tempResult) {
                             result.append(model)
