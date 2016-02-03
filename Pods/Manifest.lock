@@ -1,19 +1,48 @@
 PODS:
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
   - Alamofire (2.0.2)
   - AlamofireImage (1.1.2):
     - Alamofire (~> 2.0)
   - FMDB (2.6):
     - FMDB/standard (= 2.6)
   - FMDB/standard (2.6)
+  - HappyDNS (0.2.3)
+  - Qiniu (7.0.16):
+    - AFNetworking (~> 2.0)
+    - HappyDNS (~> 0.2)
 
 DEPENDENCIES:
   - Alamofire (~> 2.0)
   - AlamofireImage (~> 1.0)
   - FMDB
+  - Qiniu (~> 7.0)
 
 SPEC CHECKSUMS:
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
   AlamofireImage: dc3d3de5d095fd9545b144ba8f6da5bfc539512a
   FMDB: c1968bab3ab0aed38f66cb778ae1e7fa9a652b6e
+  HappyDNS: 6d85942e64c28b4fa61f8c76580398f52d6d1d11
+  Qiniu: 51a8702cddc02b50867e10cef99291b9a8a006b1
 
 COCOAPODS: 0.39.0

@@ -8,6 +8,7 @@ target 'CameraTrace' do
 pod 'FMDB'
 pod 'Alamofire', '~> 2.0'
 pod 'AlamofireImage', '~> 1.0'
+pod 'Qiniu', '~> 7.0'
 
 end
 

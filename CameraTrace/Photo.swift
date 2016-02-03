@@ -46,8 +46,6 @@ class Photo:NSObject {
         return photos
     }
     
-    
-    
     func jsonDict() -> [String:AnyObject] {
         var jsonDict:[String:AnyObject] = [:]
         jsonDict["time"] = self.createTime.timeIntervalSince1970
@@ -55,4 +53,5 @@ class Photo:NSObject {
         
         return jsonDict
     }
+    
 }
